@@ -13,6 +13,8 @@
 		CF1151172A97A76700AC04B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1151162A97A76700AC04B5 /* Preview Assets.xcassets */; };
 		CF1151192A97A76700AC04B5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1151182A97A76700AC04B5 /* Persistence.swift */; };
 		CF11511C2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF11511A2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld */; };
+		CF1151262A97A79800AC04B5 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1151242A97A79800AC04B5 /* VisualEffectBlur.swift */; };
+		CF1151272A97A79800AC04B5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1151252A97A79800AC04B5 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CF1151182A97A76700AC04B5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CF11511B2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftUI_Advanced.xcdatamodel; sourceTree = "<group>"; };
 		CF11511D2A97A76700AC04B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF1151242A97A79800AC04B5 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		CF1151252A97A79800AC04B5 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		CF11510E2A97A76300AC04B5 /* SwiftUI Advanced */ = {
 			isa = PBXGroup;
 			children = (
+				CF1151232A97A79800AC04B5 /* Helpers */,
 				CF11510F2A97A76300AC04B5 /* SwiftUI_AdvancedApp.swift */,
 				CF1151112A97A76300AC04B5 /* ContentView.swift */,
 				CF1151132A97A76700AC04B5 /* Assets.xcassets */,
@@ -73,6 +78,15 @@
 				CF1151162A97A76700AC04B5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF1151232A97A79800AC04B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF1151242A97A79800AC04B5 /* VisualEffectBlur.swift */,
+				CF1151252A97A79800AC04B5 /* ImagePicker.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1151262A97A79800AC04B5 /* VisualEffectBlur.swift in Sources */,
 				CF1151192A97A76700AC04B5 /* Persistence.swift in Sources */,
 				CF11511C2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld in Sources */,
+				CF1151272A97A79800AC04B5 /* ImagePicker.swift in Sources */,
 				CF1151122A97A76300AC04B5 /* ContentView.swift in Sources */,
 				CF1151102A97A76300AC04B5 /* SwiftUI_AdvancedApp.swift in Sources */,
 			);
