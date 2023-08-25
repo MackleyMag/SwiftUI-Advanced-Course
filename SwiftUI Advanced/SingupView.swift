@@ -19,18 +19,21 @@ struct SingupView: View {
     @State private var passwordIconBounce: Bool = false
     
     @State private var showProfileView: Bool = false
+    @State private var singupToggle: Bool = true
+    
+    @State private var rotationAngle = 0.0
     
     private let generator = UISelectionFeedbackGenerator()
     
     var body: some View {
         ZStack {
-            Image("background-3")
+            Image(singupToggle ? "background-3" : "background-1")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Sing up")
+                    Text(singupToggle ? "Sing up" : "Sing in")
                         .font(Font.largeTitle.bold())
                         .foregroundColor(.white)
                     Text("Acess to 120+ hours of courses, tutorials asn livestreams")
@@ -54,10 +57,10 @@ struct SingupView: View {
                                 }
                             }
                         }
-                            .colorScheme(.dark)
-                            .foregroundColor(.white.opacity(0.7))
-                            .autocapitalization(.none)
-                            .textContentType(.emailAddress)
+                        .colorScheme(.dark)
+                        .foregroundColor(.white.opacity(0.7))
+                        .autocapitalization(.none)
+                        .textContentType(.emailAddress)
                     }
                     .frame(height: 52)
                     .overlay (
@@ -96,7 +99,7 @@ struct SingupView: View {
                         editingEmailTextField = false
                     }
                     
-                    GradientButton(buttonTitle: "Create account") {
+                    GradientButton(buttonTitle: singupToggle ? "Create account" : "Sing in") {
                         generator.selectionChanged()
                         singUp()
                     }
@@ -106,36 +109,58 @@ struct SingupView: View {
                                 if user != nil {
                                     showProfileView.toggle()
                                 }
-                        }
+                            }
                     }
                     
-                    Text("By clickin on Sing up, you agree to our Terms of services and Privacy policy")
-                        .font(.footnote)
-                        .foregroundColor(.white.opacity(0.7))
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.white.opacity(0.1))
-                    
+                    if singupToggle {
+                        
+                        Text("By clickin on Sing up, you agree to our Terms of services and Privacy policy")
+                            .font(.footnote)
+                            .foregroundColor(.white.opacity(0.7))
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.white.opacity(0.1))
+                    }
                     VStack(alignment: .leading, spacing: 16) {
-                        Button {
-                            print("Switch to Sing in")
-                        } label: {
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.7)) {
+                                singupToggle.toggle()
+                                self.rotationAngle += 180
+                            }
+                        }, label: {
                             HStack(spacing: 4) {
-                                Text("Already have an account?")
+                                Text(singupToggle ? "Already have an account?" : "Dont have an account?")
                                     .font(.footnote)
                                     .foregroundColor(.white.opacity(0.7))
-                                GradientText(text: "Sign in")
-                                    .font(.footnote
-                                        .bold())
+                                GradientText(text: singupToggle ? "Sign in" : "Sing up")
+                                    .font(.footnote.bold())
                             }
+                        })
+                        
+                        if !singupToggle {
+                            Button {
+                                print("Send reset passoword email")
+                            } label: {
+                                HStack(spacing: 4) {
+                                    Text("Forgot password?")
+                                        .font(.footnote)
+                                        .foregroundColor(.white.opacity(0.7))
+                                    GradientText(text: "Reset password")
+                                        .font(.footnote.bold())
+                                }
+                            }
+                            
                         }
-
                     }
                     
-
+                    
                 }
                 .padding(20)
             }
+            .rotation3DEffect(
+                Angle(degrees: self.rotationAngle),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(.white.opacity(0.3))
@@ -145,20 +170,35 @@ struct SingupView: View {
             )
             .cornerRadius(30)
             .padding(.horizontal)
+            .rotation3DEffect(
+                Angle(degrees: self.rotationAngle),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
         }
-//        .fullScreenCover(isPresented: $showProfileView) {
-//            ProfileView()
-//        }
+        //        .fullScreenCover(isPresented: $showProfileView) {
+        //            ProfileView()
+        //        }
     }
     
     func singUp() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            guard error == nil else {
-                print(error!.localizedDescription)
-                return
+        if singupToggle {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                print("User singned up")
             }
-            
-            print("User singned up")
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                print("User singned in")
+            }
         }
     }
 }
