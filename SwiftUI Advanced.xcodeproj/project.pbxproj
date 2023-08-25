@@ -18,6 +18,8 @@
 		CF7838712A99102600647FC6 /* GradientText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7838702A99102600647FC6 /* GradientText.swift */; };
 		CF7838742A99106900647FC6 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7838732A99106900647FC6 /* GradientButton.swift */; };
 		CF7838762A99108300647FC6 /* TextFieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7838752A99108300647FC6 /* TextFieldIcon.swift */; };
+		CF7838792A99233D00647FC6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CF7838782A99233D00647FC6 /* FirebaseAuth */; };
+		CF78387B2A9923E600647FC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF78387A2A9923E600647FC6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		CF7838702A99102600647FC6 /* GradientText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientText.swift; sourceTree = "<group>"; };
 		CF7838732A99106900647FC6 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		CF7838752A99108300647FC6 /* TextFieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldIcon.swift; sourceTree = "<group>"; };
+		CF78387A2A9923E600647FC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7838792A99233D00647FC6 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 				CF1151132A97A76700AC04B5 /* Assets.xcassets */,
 				CF1151182A97A76700AC04B5 /* Persistence.swift */,
 				CF11511D2A97A76700AC04B5 /* Info.plist */,
+				CF78387A2A9923E600647FC6 /* GoogleService-Info.plist */,
 				CF11511A2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld */,
 				CF1151152A97A76700AC04B5 /* Preview Content */,
 			);
@@ -122,6 +127,9 @@
 			dependencies = (
 			);
 			name = "SwiftUI Advanced";
+			packageProductDependencies = (
+				CF7838782A99233D00647FC6 /* FirebaseAuth */,
+			);
 			productName = "SwiftUI Advanced";
 			productReference = CF11510C2A97A76300AC04B5 /* SwiftUI Advanced.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +158,9 @@
 				Base,
 			);
 			mainGroup = CF1151032A97A76300AC04B5;
+			packageReferences = (
+				CF7838772A99233D00647FC6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = CF11510D2A97A76300AC04B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,6 +177,7 @@
 			files = (
 				CF1151172A97A76700AC04B5 /* Preview Assets.xcassets in Resources */,
 				CF1151142A97A76700AC04B5 /* Assets.xcassets in Resources */,
+				CF78387B2A9923E600647FC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +399,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF7838772A99233D00647FC6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF7838782A99233D00647FC6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF7838772A99233D00647FC6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CF11511A2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld */ = {
