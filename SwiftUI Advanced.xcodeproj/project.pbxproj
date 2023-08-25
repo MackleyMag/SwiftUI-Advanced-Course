@@ -21,6 +21,8 @@
 		CF7838792A99233D00647FC6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CF7838782A99233D00647FC6 /* FirebaseAuth */; };
 		CF78387B2A9923E600647FC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF78387A2A9923E600647FC6 /* GoogleService-Info.plist */; };
 		CF78387D2A9926F400647FC6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78387C2A9926F400647FC6 /* ProfileView.swift */; };
+		CF78387F2A992E8800647FC6 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78387E2A992E8800647FC6 /* SignInWithAppleButton.swift */; };
+		CF7838822A99301D00647FC6 /* SingInWithAppleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7838812A99301D00647FC6 /* SingInWithAppleObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,9 @@
 		CF7838752A99108300647FC6 /* TextFieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldIcon.swift; sourceTree = "<group>"; };
 		CF78387A2A9923E600647FC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF78387C2A9926F400647FC6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CF78387E2A992E8800647FC6 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
+		CF7838802A992FEE00647FC6 /* SwiftUI Advanced.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwiftUI Advanced.entitlements"; sourceTree = "<group>"; };
+		CF7838812A99301D00647FC6 /* SingInWithAppleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInWithAppleObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +78,7 @@
 		CF11510E2A97A76300AC04B5 /* SwiftUI Advanced */ = {
 			isa = PBXGroup;
 			children = (
+				CF7838802A992FEE00647FC6 /* SwiftUI Advanced.entitlements */,
 				CF1151232A97A79800AC04B5 /* Helpers */,
 				CF11510F2A97A76300AC04B5 /* SwiftUI_AdvancedApp.swift */,
 				CF1151112A97A76300AC04B5 /* SingupView.swift */,
@@ -100,6 +106,7 @@
 			children = (
 				CF1151242A97A79800AC04B5 /* VisualEffectBlur.swift */,
 				CF1151252A97A79800AC04B5 /* ImagePicker.swift */,
+				CF7838812A99301D00647FC6 /* SingInWithAppleObject.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				CF7838702A99102600647FC6 /* GradientText.swift */,
+				CF78387E2A992E8800647FC6 /* SignInWithAppleButton.swift */,
 				CF7838732A99106900647FC6 /* GradientButton.swift */,
 				CF7838752A99108300647FC6 /* TextFieldIcon.swift */,
 			);
@@ -194,11 +202,13 @@
 				CF1151262A97A79800AC04B5 /* VisualEffectBlur.swift in Sources */,
 				CF7838742A99106900647FC6 /* GradientButton.swift in Sources */,
 				CF78387D2A9926F400647FC6 /* ProfileView.swift in Sources */,
+				CF7838822A99301D00647FC6 /* SingInWithAppleObject.swift in Sources */,
 				CF7838712A99102600647FC6 /* GradientText.swift in Sources */,
 				CF1151192A97A76700AC04B5 /* Persistence.swift in Sources */,
 				CF11511C2A97A76700AC04B5 /* SwiftUI_Advanced.xcdatamodeld in Sources */,
 				CF7838762A99108300647FC6 /* TextFieldIcon.swift in Sources */,
 				CF1151272A97A79800AC04B5 /* ImagePicker.swift in Sources */,
+				CF78387F2A992E8800647FC6 /* SignInWithAppleButton.swift in Sources */,
 				CF1151122A97A76300AC04B5 /* SingupView.swift in Sources */,
 				CF1151102A97A76300AC04B5 /* SwiftUI_AdvancedApp.swift in Sources */,
 			);
@@ -326,10 +336,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI Advanced/SwiftUI Advanced.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI Advanced/Preview Content\"";
-				DEVELOPMENT_TEAM = 385SHXWC44;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -356,10 +367,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI Advanced/SwiftUI Advanced.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI Advanced/Preview Content\"";
-				DEVELOPMENT_TEAM = 385SHXWC44;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

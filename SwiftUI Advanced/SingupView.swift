@@ -22,6 +22,7 @@ struct SingupView: View {
     @State private var singupToggle: Bool = true
     
     @State private var rotationAngle = 0.0
+    @State private var signInWIthAppleObject = SignInWithAppleObject()
     
     private let generator = UISelectionFeedbackGenerator()
     
@@ -149,6 +150,18 @@ struct SingupView: View {
                                         .font(.footnote.bold())
                                 }
                             }
+                            
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(.white.opacity(0.1))
+                            Button {
+                                signInWIthAppleObject.singInWithApple()
+                            } label: {
+                                SignInWithAppleButton()
+                                    .frame(height: 50)
+                                    .cornerRadius(16)
+                            }
+
                             
                         }
                     }
