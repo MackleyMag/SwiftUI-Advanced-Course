@@ -36,7 +36,7 @@ struct TextFieldIcon: View {
                 }
             }
             .cornerRadius(12)
-            .overlay {
+            .overlay (
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(.white, lineWidth: 1)
@@ -45,7 +45,7 @@ struct TextFieldIcon: View {
                         .gradientForeGround(colors: [Color("pink-gradient-1"),Color("pink-gradient-2")])
                         .font(.system(size: 17, weight: .medium))
                 }
-            }
+            )
             .frame(width: 36, height: 36, alignment: .center)
             .padding([.vertical, .leading], 8)
             

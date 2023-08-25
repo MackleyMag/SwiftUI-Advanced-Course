@@ -24,9 +24,9 @@ struct GradientText_Previews: PreviewProvider {
 extension View {
     public func gradientForeGround(colors: [Color]) -> some View {
         self
-            .overlay {
+            .overlay (
             LinearGradient(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .mask(self)
-        }
+        )
     }
 }

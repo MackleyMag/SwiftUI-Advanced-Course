@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import AudioToolbox
 
 struct ContentView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var editingEmailTextField: Bool = false
     @State private var editingPasswordTextField: Bool = false
+    
+    @State private var emailIconBounce: Bool = false
+    @State private var passwordIconBounce: Bool = false
+    
+    private let generator = UISelectionFeedbackGenerator()
     
     var body: some View {
         ZStack {
@@ -29,10 +35,21 @@ struct ContentView: View {
                         .foregroundColor(.white.opacity(0.7))
                     HStack(spacing: 12) {
                         TextFieldIcon(iconName: "envelope.open.fill", currentEditing: $editingEmailTextField)
+                            .scaleEffect(emailIconBounce ? 1.2 : 1.0)
                         TextField("Email", text: $email) { isEditing in
-                            editingEmailTextField = true
+                            editingEmailTextField = isEditing
                             editingPasswordTextField = false
-                            
+                            generator.selectionChanged()
+                            if isEditing {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.4, blendDuration: 0.5)){
+                                    emailIconBounce.toggle()
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.4, blendDuration: 0.5)){
+                                        emailIconBounce.toggle()
+                                    }
+                                }
+                            }
                         }
                             .colorScheme(.dark)
                             .foregroundColor(.white.opacity(0.7))
@@ -40,11 +57,11 @@ struct ContentView: View {
                             .textContentType(.emailAddress)
                     }
                     .frame(height: 52)
-                    .overlay {
+                    .overlay (
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(.white, lineWidth: 1)
                             .blendMode(.overlay)
-                    }
+                    )
                     .background(
                         Color("secondaryBackground")
                             .cornerRadius(16)
@@ -53,6 +70,7 @@ struct ContentView: View {
                     
                     HStack(spacing: 12) {
                         TextFieldIcon(iconName: "key.fill", currentEditing: $editingPasswordTextField)
+                            .scaleEffect(passwordIconBounce ? 1.2 : 1.0)
                         SecureField("Password", text: $password)
                             .colorScheme(.dark)
                             .foregroundColor(.white.opacity(0.7))
@@ -60,11 +78,11 @@ struct ContentView: View {
                             .textContentType(.password)
                     }
                     .frame(height: 52)
-                    .overlay {
+                    .overlay (
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(.white, lineWidth: 1)
                             .blendMode(.overlay)
-                    }
+                    )
                     .background(
                         Color("secondaryBackground")
                             .cornerRadius(16)
@@ -93,8 +111,8 @@ struct ContentView: View {
                                     .font(.footnote)
                                     .foregroundColor(.white.opacity(0.7))
                                 GradientText(text: "Sign in")
-                                    .font(.footnote)
-                                    .bold()
+                                    .font(.footnote
+                                        .bold())
                             }
                         }
 
