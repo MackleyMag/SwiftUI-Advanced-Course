@@ -7,8 +7,9 @@
 
 import SwiftUI
 import AudioToolbox
+import Firebase
 
-struct ContentView: View {
+struct SingupView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var editingEmailTextField: Bool = false
@@ -16,6 +17,8 @@ struct ContentView: View {
     
     @State private var emailIconBounce: Bool = false
     @State private var passwordIconBounce: Bool = false
+    
+    @State private var showProfileView: Bool = false
     
     private let generator = UISelectionFeedbackGenerator()
     
@@ -93,7 +96,18 @@ struct ContentView: View {
                         editingEmailTextField = false
                     }
                     
-                    GradientButton()
+                    GradientButton(buttonTitle: "Create account") {
+                        generator.selectionChanged()
+                        singUp()
+                    }
+                    .onAppear {
+                        Auth.auth()
+                            .addStateDidChangeListener { auth, user in
+                                if user != nil {
+                                    showProfileView.toggle()
+                                }
+                        }
+                    }
                     
                     Text("By clickin on Sing up, you agree to our Terms of services and Privacy policy")
                         .font(.footnote)
@@ -132,12 +146,26 @@ struct ContentView: View {
             .cornerRadius(30)
             .padding(.horizontal)
         }
+//        .fullScreenCover(isPresented: $showProfileView) {
+//            ProfileView()
+//        }
+    }
+    
+    func singUp() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            print("User singned up")
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SingupView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SingupView()
     }
 }
 

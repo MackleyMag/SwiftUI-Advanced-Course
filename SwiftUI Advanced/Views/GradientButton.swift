@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GradientButton: View {
+    
     @State private var angle = 0.0
     var gradient1: [Color] = [
           Color.init(red: 101/255, green: 134/255, blue: 1),
@@ -16,10 +17,11 @@ struct GradientButton: View {
           Color.init(red: 39/255, green: 232/255, blue: 1)
       ]
     
+    var buttonTitle: String
+    var buttonAction: () -> Void
+    
     var body: some View {
-        Button {
-            print("Sign up")
-        } label: {
+        Button(action: buttonAction, label:  {
             GeometryReader() { geometry in
                 ZStack {
                     AngularGradient(gradient: Gradient(colors: gradient1), center: .center, angle: .degrees(angle))
@@ -36,7 +38,7 @@ struct GradientButton: View {
                                 self.angle += 350
                             }
                         }
-                    GradientText(text: "Sing up")
+                    GradientText(text: buttonTitle)
                         .font(.headline)
                         .frame(width: geometry.size.width - 16, height: 50)
                         .background(
@@ -52,13 +54,13 @@ struct GradientButton: View {
                 }
             }
             .frame(height: 50)
-        }
+        })
     }
 }
 
 
-struct GradientButton_Previews: PreviewProvider {
-    static var previews: some View {
-        GradientButton()
-    }
-}
+//struct GradientButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GradientButton()
+//    }
+//}
