@@ -61,7 +61,6 @@
 		CF1151032A97A76300AC04B5 = {
 			isa = PBXGroup;
 			children = (
-				CF78387C2A9926F400647FC6 /* ProfileView.swift */,
 				CF11510E2A97A76300AC04B5 /* SwiftUI Advanced */,
 				CF11510D2A97A76300AC04B5 /* Products */,
 			);
@@ -81,6 +80,7 @@
 				CF7838802A992FEE00647FC6 /* SwiftUI Advanced.entitlements */,
 				CF1151232A97A79800AC04B5 /* Helpers */,
 				CF11510F2A97A76300AC04B5 /* SwiftUI_AdvancedApp.swift */,
+				CF78387C2A9926F400647FC6 /* ProfileView.swift */,
 				CF1151112A97A76300AC04B5 /* SingupView.swift */,
 				CF7838722A99102900647FC6 /* Views */,
 				CF1151132A97A76700AC04B5 /* Assets.xcassets */,
